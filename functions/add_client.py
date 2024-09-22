@@ -1,11 +1,12 @@
+import sqlite3
+from datetime import datetime
 import verify_cpf
 import add_ficha
 import add_plan
-import sqlite3
-from datetime import datetime
-
+from functions.add_birthdate import verificar_data_nascimento
 
 def cadastrar_aluno():
+    conn = None  # Inicializa a variável como None
     try:
         # Coletando os dados do aluno via terminal
         cpf = input("Digite o CPF (somente números): ")
@@ -47,26 +48,30 @@ def cadastrar_aluno():
             else:
                 print("Opção inválida. Por favor, escolha 1, 2 ou 3.")
 
-        # Validação de data com datetime
-        data_nascimento = input("Digite a data de nascimento (YYYY-MM-DD) (opcional, pressione Enter para pular): ")
-        if data_nascimento:
-            try:
-                data_nascimento = datetime.strptime(data_nascimento, "%Y-%m-%d").date()
-            except ValueError:
-                print("Data de nascimento inválida. Use o formato YYYY-MM-DD.")
-                return
-        else:
-            data_nascimento = None
+        # Inicializar a variável data_nascimento fora do laço while
+        data_nascimento = None
+
+        # Coletar e validar a data de nascimento
+        while True:
+            opcao_data = input("Deseja informar a data de nascimento? (S/N): ").upper()
+            if opcao_data == 'S':
+                data_nascimento = verificar_data_nascimento()  # Chama a função de verificação
+                break
+            elif opcao_data == 'N':
+                data_nascimento = None  # O usuário escolheu não informar a data
+                break
+            else:
+                print("Opção inválida. Escolha S ou N.")
 
         # Conectar ao banco de dados
-        conn = sqlite3.connect('academia_3.db')
+        conn = sqlite3.connect('academia_4.db')
         cursor = conn.cursor()
 
         # Inserir os dados na tabela Aluno
         cursor.execute(''' 
-            INSERT INTO Aluno (nome_aluno, cpf, email, numero_telefone, genero, data_de_nascimento)
+            INSERT INTO Aluno (cpf, nome_aluno, email, numero_telefone, genero, data_de_nascimento)
             VALUES (?, ?, ?, ?, ?, ?)
-        ''', (nome, cpf, email, telefone, genero, data_nascimento))
+        ''', (cpf, nome, email, telefone, genero, data_nascimento))
 
         # Salvar (commit) as mudanças
         conn.commit()
@@ -83,5 +88,6 @@ def cadastrar_aluno():
         print(f"Erro ao cadastrar aluno: {error}")
 
     finally:
+        # Fechar a conexão com o banco de dados, se ela foi criada
         if conn:
             conn.close()
