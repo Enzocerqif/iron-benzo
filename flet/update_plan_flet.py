@@ -15,7 +15,7 @@ def atualizar_plano(page: ft.Page):
         ],
         width=300
     )
-    novo_id_plano_field = ft.TextField(label="Novo ID do Plano", width=300, visible=False)
+    novo_id_plano_field = ft.TextField(label="Novo Plano", width=300, visible=False)
     result_text = ft.Text()
 
     def escolha_changed(e):
