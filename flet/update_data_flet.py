@@ -1,6 +1,8 @@
 import flet as ft
 import sqlite3
 
+from components.button import button
+
 def atualizar_dados(page: ft.Page):
     page.title = "Atualizar Dados"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -99,7 +101,7 @@ def atualizar_dados(page: ft.Page):
         page.update()
 
     # Botão de atualização
-    atualizar_button = ft.ElevatedButton(text="Atualizar Dados", on_click=atualizar_click)
+    atualizar_button = button(text="Atualizar Dados", on_click=atualizar_click)
 
     # Layout da página
     page.add(

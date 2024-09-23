@@ -4,6 +4,7 @@ from add_client_flet import cadastrar_aluno
 from search_info_flet import checar_informacoes
 from update_data_flet import atualizar_dados
 from update_plan_flet import atualizar_plano
+from add_ficha_treino_flet import cadastrar_ficha_treino, ver_fichas
 
 def main(page: ft.Page):
     page.title = "Sistema da Academia Iron Benzo"
@@ -17,6 +18,8 @@ def main(page: ft.Page):
                 [
                     ft.Text("Bem-vindo ao Sistema da Iron Benzo", size=40),
                     button("Cadastrar aluno", on_click=cadastrar_aluno_click),
+                    button("Cadastrar ficha de treino", on_click=show_cadastrar_ficha),
+                    button("Ver fichas de treino", on_click=show_ver_fichas),
                     button("Todos os alunos", on_click=checar_informacoes_click),
                     button("Atualizar dados", on_click=atualizar_dados_click),
                     button("Atualizar plano", on_click=atualizar_plano_click),
@@ -49,6 +52,18 @@ def main(page: ft.Page):
     def atualizar_plano_click(e):
         page.controls.clear()
         atualizar_plano(page)
+        add_back_button()
+        page.update()
+
+    def show_cadastrar_ficha(e):
+        page.controls.clear()
+        cadastrar_ficha_treino(page)
+        add_back_button()
+        page.update()
+
+    def show_ver_fichas(e):
+        page.controls.clear()
+        ver_fichas(page)
         add_back_button()
         page.update()
 

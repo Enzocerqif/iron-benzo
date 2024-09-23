@@ -1,6 +1,8 @@
 import flet as ft
 from datetime import datetime
 
+from components.button import button
+
 def verificar_data_nascimento(ano, mes, dia):
     ano_atual = datetime.now().year
     if ano > ano_atual:
@@ -47,7 +49,7 @@ def main(page: ft.Page):
             result_text.value = "Por favor, insira valores numéricos válidos."
         page.update()
 
-    verificar_button = ft.ElevatedButton(text="Verificar Data de Nascimento", on_click=verificar_click)
+    verificar_button = button(text="Verificar Data de Nascimento", on_click=verificar_click)
 
     page.add(
         ft.Column(

@@ -2,6 +2,8 @@ import flet as ft
 import sqlite3
 from datetime import datetime
 
+from components.button import button
+
 def criar_ficha(cpf):
     data_criacao = datetime.now().date()  # Data de criação da ficha (atual)
 
@@ -34,7 +36,7 @@ def main(page: ft.Page):
             result_text.value = criar_ficha(cpf)
         page.update()
 
-    criar_ficha_button = ft.ElevatedButton(text="Criar Ficha", on_click=criar_ficha_click)
+    criar_ficha_button = button(text="Criar Ficha", on_click=criar_ficha_click)
 
     page.add(
         ft.Column(

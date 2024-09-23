@@ -1,6 +1,8 @@
 import flet as ft
 import sqlite3
 
+from components.button import button
+
 def verificar_cpf_existente(cpf):
     conn = None
     try:
@@ -40,7 +42,7 @@ def main(page: ft.Page):
                 result_text.value = "CPF não encontrado no sistema."
         page.update()
 
-    verificar_cpf_button = ft.ElevatedButton(text="Verificar CPF", on_click=verificar_cpf_click)
+    verificar_cpf_button = button(text="Verificar CPF", on_click=verificar_cpf_click)
 
     page.add(
         ft.Column(
