@@ -17,7 +17,7 @@ def cadastrar_plano(page: ft.Page):
 
         try:
             # Conectando ao banco de dados
-            banco = sqlite3.connect('../academia.db')
+            banco = sqlite3.connect('./academia.db')
             cursor = banco.cursor()
 
             # Comando SQL para inserir um novo plano

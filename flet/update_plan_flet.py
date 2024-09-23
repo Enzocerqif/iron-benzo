@@ -36,7 +36,7 @@ def atualizar_plano(page: ft.Page):
         data_atual = date.today().strftime('%Y-%m-%d')
 
         try:
-            banco = sqlite3.connect('../academia.db')
+            banco = sqlite3.connect('./academia.db')
             cursor = banco.cursor()
 
             if escolha == "encerrar":
