@@ -2,7 +2,7 @@ import sqlite3
 
 def verificar_cpf_existente(cpf):
     try:
-        conn = sqlite3.connect('academia_4.db')
+        conn = sqlite3.connect('../academia_4.db')
         cursor = conn.cursor()
 
         cursor.execute('SELECT cpf FROM Aluno WHERE cpf = ?', (cpf,))

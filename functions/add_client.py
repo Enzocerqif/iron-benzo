@@ -3,7 +3,7 @@ from datetime import datetime
 import verify_cpf
 import add_ficha
 import add_plan
-from functions.add_birthdate import verificar_data_nascimento
+from add_birthdate import verificar_data_nascimento
 
 def cadastrar_aluno():
     conn = None  # Inicializa a variável como None
@@ -64,7 +64,7 @@ def cadastrar_aluno():
                 print("Opção inválida. Escolha S ou N.")
 
         # Conectar ao banco de dados
-        conn = sqlite3.connect('academia_4.db')
+        conn = sqlite3.connect('../academia_4.db')
         cursor = conn.cursor()
 
         # Inserir os dados na tabela Aluno

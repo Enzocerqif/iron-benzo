@@ -26,7 +26,7 @@ def cadastrar_plano(cpf):
     status = "Ativo"
 
     # Conectar ao banco de dados e inserir o plano
-    conn = sqlite3.connect('academia_4.db')
+    conn = sqlite3.connect('../academia_4.db')
     cursor = conn.cursor()
 
     cursor.execute('''
