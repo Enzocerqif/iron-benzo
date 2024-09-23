@@ -56,13 +56,13 @@ def atualizar_dados(page: ft.Page):
     )
 
     # Dropdown para selecionar a coluna a ser atualizada
-    coluna_dropdown = ft.Dropdown(label="Selecione a coluna a atualizar", width=300)
+    coluna_dropdown = ft.Dropdown(label="Selecione o que deseja atualizar", width=300)
 
     # Campo para o novo valor
-    novo_valor_field = ft.TextField(label="Novo valor para a coluna", width=300)
+    novo_valor_field = ft.TextField(label="Novo valor", width=300)
 
     # Dropdown para selecionar a coluna da condição
-    condicao_coluna_dropdown = ft.Dropdown(label="Selecione a coluna da condição", width=300)
+    condicao_coluna_dropdown = ft.Dropdown(label="Selecione a condição", width=300)
 
     # Campo para o valor da condição
     condicao_valor_field = ft.TextField(label="Valor para a condição", width=300)
