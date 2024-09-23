@@ -1,12 +1,12 @@
 import flet as ft
 from components.button import button
-from add_client_flet import cadastrar_aluno
-from ver_fichas_flet import ver_fichas
-from search_info_flet import checar_informacoes
-from update_data_flet import atualizar_dados
-from update_plan_flet import atualizar_plano
-from add_plano_db_flet import cadastrar_plano
-from add_ficha_treino_flet import cadastrar_ficha_treino
+from register_student import cadastrar_aluno
+from search_training_sheets import ver_fichas
+from search_students import checar_informacoes
+from update_student_data import atualizar_dados
+from update_plan import atualizar_plano
+from register_plan_db import cadastrar_plano
+from register_training_sheet import cadastrar_ficha_treino
 
 def main(page: ft.Page):
     page.title = "Sistema da Academia Iron Benzo"

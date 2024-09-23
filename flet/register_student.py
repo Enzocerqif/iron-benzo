@@ -1,11 +1,9 @@
 import flet as ft
 import sqlite3
-from datetime import datetime
 from components.button import button
-import verify_cpf_flet
-import add_ficha_flet
-import add_plano_flet
-from add_birthdate_flet import verificar_data_nascimento
+import functions.verify_cpf as verify_cpf
+import register_student_plan as add_plan
+from functions.verify_birthdate import verificar_data_nascimento
 
 def cadastrar_aluno(page: ft.Page):
     def submit(e):
@@ -23,7 +21,7 @@ def cadastrar_aluno(page: ft.Page):
             page.update()
             return
 
-        if verify_cpf_flet.verificar_cpf_existente(cpf):
+        if verify_cpf.verificar_cpf_existente(cpf):
             dialog = ft.AlertDialog(title=ft.Text("Erro: CPF já cadastrado no sistema."))
             page.overlay.append(dialog)
             dialog.open = True
@@ -68,7 +66,7 @@ def cadastrar_aluno(page: ft.Page):
             dialog.open = True
             page.update()
 
-            add_plano_flet.main(page)
+            add_plan.main(page)
 
         except sqlite3.Error as error:
             dialog = ft.AlertDialog(title=ft.Text(f"Erro ao cadastrar aluno: {error}"))
