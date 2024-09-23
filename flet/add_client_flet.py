@@ -69,7 +69,6 @@ def cadastrar_aluno(page: ft.Page):
             page.update()
 
             add_plano_flet.main(page)
-            add_ficha_flet.main(page)
 
         except sqlite3.Error as error:
             dialog = ft.AlertDialog(title=ft.Text(f"Erro ao cadastrar aluno: {error}"))
