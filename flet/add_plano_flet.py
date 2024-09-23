@@ -2,6 +2,8 @@ import flet as ft
 import sqlite3
 from datetime import datetime
 
+from components.button import button
+
 def cadastrar_plano(cpf, plano_id):
     if plano_id == '1':
         nome_plano = "Anual"
@@ -60,7 +62,7 @@ def main(page: ft.Page):
             result_text.value = cadastrar_plano(cpf, plano_id)
         page.update()
 
-    cadastrar_plano_button = ft.ElevatedButton(text="Cadastrar Plano", on_click=cadastrar_plano_click)
+    cadastrar_plano_button = button(text="Cadastrar Plano", on_click=cadastrar_plano_click)
 
     page.add(
         ft.Column(

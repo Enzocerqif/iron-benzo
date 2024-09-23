@@ -5,5 +5,5 @@ def button(text, on_click):
         text=text,
         on_click=on_click,
         style=ft.ButtonStyle(text_style=ft.TextStyle(size=30)),
-        width=300,
+        width=400,
     )

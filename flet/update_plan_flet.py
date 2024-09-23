@@ -2,6 +2,8 @@ import flet as ft
 import sqlite3
 from datetime import date
 
+from components.button import button
+
 def atualizar_plano(page: ft.Page):
     page.title = "Atualizar Plano"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -70,7 +72,7 @@ def atualizar_plano(page: ft.Page):
 
         page.update()
 
-    atualizar_button = ft.ElevatedButton(text="Atualizar Plano", on_click=atualizar_click)
+    atualizar_button = button(text="Atualizar Plano", on_click=atualizar_click)
 
     page.add(
         ft.Column(
