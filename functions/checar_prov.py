@@ -4,7 +4,7 @@ import sqlite3
 def checar_informacoes():
     # SELECT ALL PROVISORIO
     try:
-        conn = sqlite3.connect('../academia_4.db')
+        conn = sqlite3.connect('.database/academia.db')
         cursor = conn.cursor()
 
         # Executar consulta para obter todos os alunos

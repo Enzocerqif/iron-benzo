@@ -6,7 +6,7 @@ def criar_ficha(cpf):
     data_criacao = datetime.now().date()  # Data de criação da ficha (atual)
 
     # Conectar ao banco de dados e inserir a ficha
-    conn = sqlite3.connect('../academia_4.db')
+    conn = sqlite3.connect('.database/academia.db')
     cursor = conn.cursor()
 
     cursor.execute('''

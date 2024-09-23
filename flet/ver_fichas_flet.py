@@ -17,7 +17,7 @@ def ver_fichas(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('./academia.db')
+            conn = sqlite3.connect('database/academia.db')
             cursor = conn.cursor()
 
             cursor.execute('''
@@ -70,7 +70,7 @@ def ver_fichas(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('./academia.db')
+            conn = sqlite3.connect('database/academia.db')
             cursor = conn.cursor()
 
             cursor.execute('''

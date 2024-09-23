@@ -6,7 +6,7 @@ from components.button import button
 def verificar_cpf_existente(cpf):
     conn = None
     try:
-        conn = sqlite3.connect('./academia.db')
+        conn = sqlite3.connect('database/academia.db')
         cursor = conn.cursor()
 
         cursor.execute('SELECT cpf FROM Aluno WHERE cpf = ?', (cpf,))

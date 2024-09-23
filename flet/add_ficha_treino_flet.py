@@ -22,7 +22,7 @@ def cadastrar_ficha_treino(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('./academia.db')
+            conn = sqlite3.connect('database/academia.db')
             cursor = conn.cursor()
 
             if id_ficha == "nova_ficha":
@@ -68,7 +68,7 @@ def cadastrar_ficha_treino(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('./academia.db')
+            conn = sqlite3.connect('database/academia.db')
             cursor = conn.cursor()
 
             cursor.execute('''

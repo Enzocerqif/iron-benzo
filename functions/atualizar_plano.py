@@ -4,7 +4,7 @@ from datetime import date
 def atualizar_plano():
     # Conectar ao banco de dados SQLite
     try:
-        banco = sqlite3.connect('../academia_4.db')  # Conecte ao banco de dados
+        banco = sqlite3.connect('.database/academia.db')  # Conecte ao banco de dados
         cursor = banco.cursor()
 
         # Perguntar o CPF do aluno

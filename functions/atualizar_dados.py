@@ -3,7 +3,7 @@ import sqlite3
 def atualizar_dados():
     # Conectar ao banco de dados SQLite
     try:
-        banco = sqlite3.connect('../academia_4.db')
+        banco = sqlite3.connect('.database/academia.db')
         cursor = banco.cursor()
 
         # Perguntar ao usuário sobre os detalhes da atualização

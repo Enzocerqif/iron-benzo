@@ -64,7 +64,7 @@ def cadastrar_aluno():
                 print("Opção inválida. Escolha S ou N.")
 
         # Conectar ao banco de dados
-        conn = sqlite3.connect('../academia_4.db')
+        conn = sqlite3.connect('.database/academia.db')
         cursor = conn.cursor()
 
         # Inserir os dados na tabela Aluno
