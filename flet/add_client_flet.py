@@ -53,7 +53,7 @@ def cadastrar_aluno(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('./academia_4.db')
+            conn = sqlite3.connect('../academia.db')
             cursor = conn.cursor()
 
             cursor.execute('''
@@ -68,8 +68,8 @@ def cadastrar_aluno(page: ft.Page):
             dialog.open = True
             page.update()
 
-            add_plano_flet.cadastrar_plano(cpf)
-            add_ficha_flet.criar_ficha(cpf)
+            add_plano_flet.main(page)
+            add_ficha_flet.main(page)
 
         except sqlite3.Error as error:
             dialog = ft.AlertDialog(title=ft.Text(f"Erro ao cadastrar aluno: {error}"))

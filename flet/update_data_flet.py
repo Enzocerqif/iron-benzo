@@ -20,7 +20,7 @@ def atualizar_dados(page: ft.Page):
         condicao_valor = condicao_valor_field.value
 
         try:
-            banco = sqlite3.connect('../academia_4.db')
+            banco = sqlite3.connect('../academia.db')
             cursor = banco.cursor()
 
             query = f"UPDATE {tabela} SET {coluna} = ? WHERE {condicao_coluna} = ?"
