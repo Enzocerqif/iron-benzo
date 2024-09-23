@@ -12,7 +12,7 @@ def atualizar_dados(page: ft.Page):
     # Conectar ao banco de dados e carregar as tabelas
     def carregar_tabelas():
         try:
-            banco = sqlite3.connect('../academia.db')
+            banco = sqlite3.connect('./academia.db')
             cursor = banco.cursor()
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
             tabelas = [row[0] for row in cursor.fetchall()]
@@ -28,7 +28,7 @@ def atualizar_dados(page: ft.Page):
     # Função para carregar colunas da tabela selecionada
     def carregar_colunas(tabela):
         try:
-            banco = sqlite3.connect('../academia.db')
+            banco = sqlite3.connect('./academia.db')
             cursor = banco.cursor()
             cursor.execute(f"PRAGMA table_info({tabela})")
             colunas = [row[1] for row in cursor.fetchall()]  # Segunda coluna é o nome da coluna
@@ -78,7 +78,7 @@ def atualizar_dados(page: ft.Page):
         condicao_valor = condicao_valor_field.value
 
         try:
-            banco = sqlite3.connect('../academia.db')
+            banco = sqlite3.connect('./academia.db')
             cursor = banco.cursor()
 
             query = f"UPDATE {tabela} SET {coluna} = ? WHERE {condicao_coluna} = ?"

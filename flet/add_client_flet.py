@@ -53,7 +53,7 @@ def cadastrar_aluno(page: ft.Page):
 
         conn = None
         try:
-            conn = sqlite3.connect('../academia.db')
+            conn = sqlite3.connect('./academia.db') 
             cursor = conn.cursor()
 
             cursor.execute('''

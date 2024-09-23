@@ -23,7 +23,7 @@ def checar_informacoes(page: ft.Page):
     def carregar_informacoes():
         conn = None  
         try:
-            conn = sqlite3.connect('../academia.db')  
+            conn = sqlite3.connect('./academia.db')  
             cursor = conn.cursor()
 
             cursor.execute('''
