@@ -1,7 +1,7 @@
 from add_client import cadastrar_aluno
 from checar_prov import checar_informacoes
-from atualizarDados import atualizar_dados
-from atualizarPlano import atualizar_plano
+from functions.atualizar_dados import atualizar_dados
+from functions.atualizar_plano import atualizar_plano
 
 def exibir_menu():
     while True:
@@ -21,7 +21,7 @@ def exibir_menu():
         elif opcao == '3':
             atualizar_dados()
         elif opcao == '4':
-            atualizar_Plano()
+            atualizar_plano()
         elif opcao == '0':
             print("Encerrando o programa... Até mais!")
             break
