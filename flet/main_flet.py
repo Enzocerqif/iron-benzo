@@ -5,6 +5,7 @@ from ver_fichas_flet import ver_fichas
 from search_info_flet import checar_informacoes
 from update_data_flet import atualizar_dados
 from update_plan_flet import atualizar_plano
+from add_plano_db_flet import cadastrar_plano
 from add_ficha_treino_flet import cadastrar_ficha_treino
 
 def main(page: ft.Page):
@@ -24,6 +25,7 @@ def main(page: ft.Page):
                     button("Todos os alunos", on_click=checar_informacoes_click),
                     button("Atualizar dados", on_click=atualizar_dados_click),
                     button("Atualizar plano", on_click=atualizar_plano_click),
+                    button("Cadastrar plano", on_click=cadastrar_plano_click),
                     button("Sair", on_click=fechar_programa_click),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
@@ -53,6 +55,12 @@ def main(page: ft.Page):
     def atualizar_plano_click(e):
         page.controls.clear()
         atualizar_plano(page)
+        add_back_button()
+        page.update()
+
+    def cadastrar_plano_click(e):
+        page.controls.clear()
+        cadastrar_plano(page)
         add_back_button()
         page.update()
 
