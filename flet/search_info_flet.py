@@ -32,6 +32,7 @@ def checar_informacoes(page: ft.Page):
                        Plano_Aluno.status 
                 FROM Aluno
                 LEFT JOIN Plano_Aluno ON Aluno.cpf = Plano_Aluno.cpf
+                ORDER BY Aluno.nome_aluno
             ''')
 
             alunos = cursor.fetchall()
