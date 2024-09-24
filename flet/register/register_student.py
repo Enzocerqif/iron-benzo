@@ -2,7 +2,7 @@ import flet as ft
 import sqlite3
 from components.button import button
 import functions.verify_cpf as verify_cpf
-import register_student_plan as add_plan
+import register.register_student_plan as add_plan
 from functions.verify_birthdate import verificar_data_nascimento
 
 def cadastrar_aluno(page: ft.Page):
