@@ -6,7 +6,7 @@ O Sistema da Academia Iron Benzo é uma aplicação desenvolvida para gerenciar 
 Python: Linguagem de programação principal utilizada no desenvolvimento da aplicação.
 Flet: Framework utilizado para construir a interface gráfica da aplicação.
 SQLite: Banco de dados utilizado para armazenar as informações dos alunos, fichas de treino e planos.
-O que é o Flet?
+## O que é o Flet?
 Flet é um framework para construir aplicações web e desktop interativas utilizando Python. Ele permite criar interfaces de usuário modernas e responsivas sem a necessidade de escrever código HTML, CSS ou JavaScript. O Flet é baseado no Flutter, um framework de UI desenvolvido pelo Google, mas permite que os desenvolvedores utilizem Python em vez de Dart.
 
 ## Funcionalidades
