@@ -1,13 +1,16 @@
 import flet as ft
 import sqlite3
 
+from components.button import button
+from components.text_field import text_field
+
 def cadastrar_plano(page: ft.Page):
     page.title = "Cadastrar Novo Plano"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
     # Campos para o formulário de cadastro
-    nome_plano_field = ft.TextField(label="Nome do Plano", width=300)
-    valor_plano_field = ft.TextField(label="Valor do Plano", width=300)
+    nome_plano_field = text_field(label="Nome do Plano")
+    valor_plano_field = text_field(label="Valor do Plano")
     result_text = ft.Text()
 
     # Função para cadastrar o plano no banco de dados
@@ -43,7 +46,7 @@ def cadastrar_plano(page: ft.Page):
         page.update()
 
     # Botão para realizar o cadastro
-    cadastrar_button = ft.ElevatedButton(text="Cadastrar Plano", on_click=cadastrar_click)
+    cadastrar_button = button(text="Cadastrar Plano", on_click=cadastrar_click)
 
     # Layout da página
     page.add(

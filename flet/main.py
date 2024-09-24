@@ -16,20 +16,31 @@ def main(page: ft.Page):
     def show_menu():
         page.controls.clear()
         page.add(
-            ft.Column(
-                [
-                    ft.Text("Bem-vindo ao Sistema da Iron Benzo", size=40),
-                    button("Cadastrar aluno", on_click=cadastrar_aluno_click),
-                    button("Cadastrar ficha de treino", on_click=show_cadastrar_ficha),
-                    button("Ver fichas de treino", on_click=show_ver_fichas),
-                    button("Todos os alunos", on_click=checar_informacoes_click),
-                    button("Atualizar dados", on_click=atualizar_dados_click),
-                    button("Atualizar plano", on_click=atualizar_plano_click),
-                    button("Cadastrar plano", on_click=cadastrar_plano_click),
-                    button("Sair", on_click=fechar_programa_click),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            ft.Container(
+                content= ft.Container(
+                    content = ft.Column(
+                    [
+                        ft.Text("Bem-vindo ao Sistema Iron Benzo", size=40),
+                        button("Todos os alunos", on_click=checar_informacoes_click, icon=ft.icons.GROUP),
+                        button("Adicionar aluno", on_click=cadastrar_aluno_click, icon=ft.icons.PERSON_ADD),
+                        button("Adicionar fichas", on_click=show_cadastrar_ficha, icon=ft.icons.FITNESS_CENTER),
+                        button("Fichas de treino", on_click=show_ver_fichas, icon=ft.icons.DESCRIPTION),
+                        button("Adicionar plano", on_click=cadastrar_plano_click, icon=ft.icons.PLAYLIST_ADD),
+                        button("Atualizar plano", on_click=atualizar_plano_click, icon=ft.icons.EDIT),
+                        button("Atualizar dados", on_click=atualizar_dados_click, icon=ft.icons.UPDATE),
+                        button("Sair", on_click=fechar_programa_click, icon=ft.icons.EXIT_TO_APP),
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                ),
+                bgcolor=ft.colors.BLACK87,
+                padding=100,
+                border_radius=10,
+            ),
+            expand=True,
+            alignment=ft.alignment.center,
+            image_src="https://img.freepik.com/fotos-premium/academia-moderna-e-totalmente-equipada-localizada-no-andar-superior-de-uma-torre-comercial-generative-ai_1000174-4419.jpg",
+            image_fit=ft.ImageFit.COVER,
             )
         )
         page.update()

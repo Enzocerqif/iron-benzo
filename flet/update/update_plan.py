@@ -3,21 +3,23 @@ import sqlite3
 from datetime import date
 
 from components.button import button
+from components.text_field import text_field
+from components.dropdown import dropdown
 
 def atualizar_plano(page: ft.Page):
     page.title = "Atualizar Plano"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    cpf_field = ft.TextField(label="CPF (somente números)", width=300)
+    cpf_field = text_field(label="CPF")
     escolha_dropdown = ft.Dropdown(
         label="Escolha uma ação",
         options=[
             ft.dropdown.Option("alterar", "Alterar Plano"),
             ft.dropdown.Option("encerrar", "Encerrar Plano"),
         ],
-        width=300
+        width=400,
     )
-    novo_id_plano_field = ft.TextField(label="Novo Plano", width=300, visible=False)
+    novo_id_plano_field = text_field(label="Novo Plano")
     result_text = ft.Text()
 
     def escolha_changed(e):
@@ -72,7 +74,7 @@ def atualizar_plano(page: ft.Page):
 
         page.update()
 
-    atualizar_button = button(text="Atualizar Plano", on_click=atualizar_click)
+    atualizar_button = button(text="Atualizar plano", on_click=atualizar_click)
 
     page.add(
         ft.Column(

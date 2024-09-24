@@ -3,6 +3,8 @@ import sqlite3
 from datetime import datetime
 
 from components.button import button
+from components.text_field import text_field
+from components.dropdown import dropdown
 
 def cadastrar_ficha_treino(page: ft.Page):
     def submit(e):
@@ -95,23 +97,22 @@ def cadastrar_ficha_treino(page: ft.Page):
             if conn:
                 conn.close()
 
-    cpf_field = ft.TextField(label="CPF do Aluno", width=300, on_change=carregar_fichas)
-    id_ficha_dropdown = ft.Dropdown(label="Selecione a Ficha", width=300)
-    nome_exercicio_field = ft.TextField(label="Nome do Exercício", width=300)
-    series_field = ft.TextField(label="Séries", width=300)
-    repeticoes_field = ft.TextField(label="Repetições", width=300)
-    dia_da_semana_dropdown = ft.Dropdown(
+    cpf_field = text_field(label="CPF do Aluno", on_change=carregar_fichas)
+    id_ficha_dropdown = dropdown(label="Selecione a Ficha", options=[])
+    nome_exercicio_field = text_field(label="Nome do Exercício")
+    series_field = text_field(label="Séries")
+    repeticoes_field = text_field(label="Repetições")
+    dia_da_semana_dropdown = dropdown(
         label="Dia da Semana",
-        width=300,
         options=[
-            ft.dropdown.Option("Segunda-feira"),
-            ft.dropdown.Option("Terça-feira"),
-            ft.dropdown.Option("Quarta-feira"),
-            ft.dropdown.Option("Quinta-feira"),
-            ft.dropdown.Option("Sexta-feira"),
-            ft.dropdown.Option("Sábado"),
-            ft.dropdown.Option("Domingo"),
-        ]
+            "Segunda-feira",
+            "Terça-feira",
+            "Quarta-feira",
+            "Quinta-feira",
+            "Sexta-feira",
+            "Sábado",
+            "Domingo",
+        ],
     )
     submit_button = button(text="Cadastrar", on_click=submit)
 

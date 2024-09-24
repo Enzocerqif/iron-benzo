@@ -1,6 +1,8 @@
 import flet as ft
 import sqlite3
 from components.button import button
+from components.text_field import text_field
+from components.dropdown import dropdown
 import functions.verify_cpf as verify_cpf
 import register.register_student_plan as add_plan
 from functions.verify_birthdate import verificar_data_nascimento
@@ -78,20 +80,15 @@ def cadastrar_aluno(page: ft.Page):
             if conn:
                 conn.close()
 
-    cpf_field = ft.TextField(label="CPF", width=300)
-    nome_field = ft.TextField(label="Nome completo", width=300)
-    email_field = ft.TextField(label="Email", width=300)
-    telefone_field = ft.TextField(label="Número de telefone", width=300)
-    genero_dropdown = ft.Dropdown(
+    cpf_field = text_field(label="CPF")
+    nome_field = text_field(label="Nome completo")
+    email_field = text_field(label="Email")
+    telefone_field = text_field(label="Número de telefone")
+    genero_dropdown = dropdown(
         label="Gênero",
-        options=[
-            ft.dropdown.Option("Masculino"),
-            ft.dropdown.Option("Feminino"),
-            ft.dropdown.Option("Indefinido"),
-        ],
-        width=300
+        options=["Masculino", "Feminino", "Indefinido"],
     )
-    data_nascimento_field = ft.TextField(label="Data de Nascimento (YYYY-MM-DD)", width=300)
+    data_nascimento_field = text_field(label="Data de Nascimento (YYYY-MM-DD)")
     submit_button = button(text="Cadastrar", on_click=submit)
 
     page.add(

@@ -3,6 +3,7 @@ import sqlite3
 from datetime import datetime
 
 from components.button import button
+from components.text_field import text_field
 
 def cadastrar_plano(cpf, plano_id):
     if plano_id == '1':
@@ -39,7 +40,7 @@ def main(page: ft.Page):
     page.title = "Cadastrar Plano"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    cpf_field = ft.TextField(label="CPF)", width=300)
+    cpf_field = text_field(label="CPF)")
     plano_dropdown = ft.Dropdown(
         label="Escolha o plano",
         options=[

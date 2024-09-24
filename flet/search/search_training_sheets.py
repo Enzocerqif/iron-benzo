@@ -2,6 +2,8 @@ import flet as ft
 import sqlite3
 
 from components.button import button
+from components.text_field import text_field
+from components.dropdown import dropdown
 
 def ver_fichas(page: ft.Page):
     def submit(e):
@@ -97,8 +99,8 @@ def ver_fichas(page: ft.Page):
             if conn:
                 conn.close()
 
-    cpf_field = ft.TextField(label="CPF do Aluno", width=300, on_change=carregar_fichas)
-    id_ficha_dropdown = ft.Dropdown(label="Selecione a Ficha", width=300)
+    cpf_field = text_field(label="CPF do Aluno", on_change=carregar_fichas)
+    id_ficha_dropdown = dropdown(label="Selecione a Ficha", options=[])
     submit_button = button(text="Ver ficha", on_click=submit)
 
     page.add(

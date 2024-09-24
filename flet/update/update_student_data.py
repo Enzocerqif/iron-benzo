@@ -2,6 +2,8 @@ import flet as ft
 import sqlite3
 
 from components.button import button
+from components.text_field import text_field
+from components.dropdown import dropdown
 
 def atualizar_dados(page: ft.Page):
     page.title = "Atualizar Dados"
@@ -50,24 +52,23 @@ def atualizar_dados(page: ft.Page):
 
     # Dropdown para selecionar a tabela
     tabelas = carregar_tabelas()
-    tabela_dropdown = ft.Dropdown(
+    tabela_dropdown = dropdown(
         label="Selecione a tabela",
-        options=[ft.dropdown.Option(tabela) for tabela in tabelas],
+        options=[tabela for tabela in tabelas],
         on_change=tabela_selecionada,
-        width=300
     )
 
     # Dropdown para selecionar a coluna a ser atualizada
-    coluna_dropdown = ft.Dropdown(label="Selecione o que deseja atualizar", width=300)
+    coluna_dropdown = dropdown(label="Selecione o que deseja atualizar")
 
     # Campo para o novo valor
-    novo_valor_field = ft.TextField(label="Novo valor", width=300)
+    novo_valor_field = text_field(label="Novo valor")
 
     # Dropdown para selecionar a coluna da condição
-    condicao_coluna_dropdown = ft.Dropdown(label="Selecione a condição", width=300)
+    condicao_coluna_dropdown = dropdown(label="Selecione a condição")
 
     # Campo para o valor da condição
-    condicao_valor_field = ft.TextField(label="Valor para a condição", width=300)
+    condicao_valor_field = text_field(label="Valor para a condição")
 
     # Função para atualizar os dados no banco de dados
     def atualizar_click(e):
@@ -101,7 +102,7 @@ def atualizar_dados(page: ft.Page):
         page.update()
 
     # Botão de atualização
-    atualizar_button = button(text="Atualizar Dados", on_click=atualizar_click)
+    atualizar_button = button(text="Atualizar dados", on_click=atualizar_click)
 
     # Layout da página
     page.add(
